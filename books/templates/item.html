@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}
+    <title>{{item.title}} Online-Shop</title>
+{% endblock %}
+{% block main %}
+    <a href="/book/{{item.alias}}/" class="item">
+        <img src="{{item.image.url}}" alt="Здесь должна была быть картинка">
+    </a>
+    <div class="mini-conteiner">
+        <span class="title">{{ item.title }}</span>
+        <a href="/author/{{item.author.alias}}/">
+        <span class="auth">{{ item.author }}</span>
+        </a>
+        <span class="price">{{ item.price }} рублей</span>
+        <span class="descr">{{ item.description }}</span>
+    </div>
+{% endblock %}

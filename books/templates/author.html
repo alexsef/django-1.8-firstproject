@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title>{{authors.author_name}} Online-Shop</title>
+{% endblock %}
+
+{% block main %}
+    <div class="item">
+        <img src="{{authors.img}}" alt="Здесь должна была быть картинка">
+    </div>
+    <div class="mini-conteiner">
+        <span class="auth">{{ authors.author_name }}</span>
+        <span class="descr">{{ authors.description }}</span>
+    </div>
+{% endblock %}

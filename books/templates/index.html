@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title>Online-Shop</title>
+{% endblock %}
+
+{% block left_books %}
+    <span class="recently"><a href="{% url 'books.views.recently' %}">Случайные книги:</a></span>
+    {% for book in books_sort %}
+            <a href="/book/{{ book.alias }}/">
+                <img class="left_img" src="{{ book.image.url }}" alt="Здесь должна была быть картинка">
+            </a>
+            <a href="/book/{{ book.alias }}/">
+                <span class="left_title">{{ book.title }}</span>
+            </a>
+            <a href="/author/{{ book.author.alias }}/">
+                <span class="left_auth">{{ book.author.author_name }}</span>
+            </a>
+    {% endfor %}
+{% endblock %}
+
+{% block main %}
+    <span class="new_more">Самые популярные книги!</span>
+    {% for book in books %}
+        <div class="goods">
+            <a href="/book/{{book.alias}}/" class="item">
+                <img src="{{book.image.url}}" alt="Здесь должна была быть картинка">
+            </a>
+            <div class="mini-conteiner">
+                <span class="title"><a href="/book/{{book.alias}}/">{{ book.title }}</a></span>
+                <a href="/author/{{book.author.alias}}/">
+                <span class="auth">{{ book.author }}</span>
+                </a>
+                <span class="price">{{ book.price }} рублей</span>
+                <span class="short">{{ book.short_description }}</span>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

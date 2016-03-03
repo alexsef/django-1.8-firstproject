@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block main %}
+    {% if books %}
+        <span>Найдено {{ books|length }} книга.</span><br>
+        {% for book in books %}
+        <a href="/book/{{book.alias}}/" class="item">
+            <img src="{{book.img}}" alt="Здесь должна была быть картинка">
+        </a>
+        <div class="mini-conteiner">
+            <a href="/book/{{book.alias}}">
+                <span class="title">{{ book.title }}</span>
+            </a>
+            <a href="/author/{{auth.alias}}">
+            <span class="auth">{{ book.author.author_name }}</span>
+            </a>
+            <span class="price">{{ book.price }} рублей</span>
+            <span class="descr">{{ book.short_description }}</span>
+        </div>
+        {% endfor %}
+    {% else %}
+        <span>Ни одной книги не найдено.</span>
+    {% endif %}
+{% endblock %}

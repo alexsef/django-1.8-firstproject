@@ -1,0 +1,50 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="stylesheet" href="{% static "style.css" %}">
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="{% static 'icon.ico' %}" type="image/x-icon">
+    {% block title %}{% endblock %}
+</head>
+<body>
+    <div class="wraper">
+        <div class="upheader">
+            <div class="upheader-1">
+                <a href="{% url 'books.views.home' %}" class="home">
+                    <img src="{% static "logo.jpg" %}" alt="#">
+                </a>
+            </div>
+            <div class="upheader-2">
+                <form method="GET" action="{% url 'books.views.search' %}">
+                    <input class="form" type="text" name="q" placeholder="Название книги">
+                    <input class="button" type="submit" value="Найти">
+                </form>
+            </div>
+        </div>
+        <div class="header">
+            <div class="nav">
+                <ul>
+                    <a href="{% url 'books.views.categories_fiction' %}"><li>Художественная</li></a>
+                    <a href="{% url 'books.views.categories_science' %}"><li>Научно-популярная</li></a>
+                    <a href="{% url 'books.views.categories_technical' %}"><li>Техническая</li></a>
+                    <a href="{% url 'books.views.categories_detective' %}"><li>Детективы</li></a>
+                </ul>
+            </div>
+        </div>
+        <div class="body">
+            <div class="left">
+                <div class="left_image">
+                    {% block left_books %}{% endblock %}
+                </div>
+            </div>
+            <div class="main">
+                {% block main %}{% endblock %}
+            </div>
+        </div>
+        <div class="footer">
+            <span class="spf">© 2016 Shop by Alex Selivanov. Все права защищены.</span>
+        </div>
+    </div>
+</body>
+</html>

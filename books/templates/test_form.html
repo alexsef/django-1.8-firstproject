@@ -1,0 +1,9 @@
+    {% extends 'base.html' %}
+
+    {% block main %}
+        <h1>Нужно больше золота!</h1>
+        <form method="GET" action="{% url 'books.views.search' %}">
+            <input type="text" name="q">
+            <input type="submit" value="Найти">
+        </form>
+    {% endblock %}

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title>Новинки Online-Shop</title>
+{% endblock %}
+
+{% block main %}
+    {% for book in books_re %}
+        <a href="/book/{{book.alias}}/" class="item">
+            <img src="{{book.image.url}}" alt="Здесь должна была быть картинка">
+        </a>
+        <div class="mini-conteiner">
+            <a href="/book/{{book.alias}}">
+                <span class="title">{{ book.title }}</span>
+            </a>
+            <a href="/author/{{auth.alias}}">
+            <span class="auth">{{ auth.author_name }}</span>
+            </a>
+            <span class="price">{{ book.price }} рублей</span>
+            <span class="descr">{{ book.pub_date }}</span>
+        </div>
+    {% endfor %}
+{% endblock %}
