@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block left_books %}
-    <span class="recently"><a href="{% url 'books.views.recently' %}">Случайные книги:</a></span>
+    <span class="recently">Случайные книги:</span>
     {% for book in books_sort %}
             <a href="/book/{{ book.alias }}/">
                 <img class="left_img" src="{{ book.image.url }}" alt="Здесь должна была быть картинка">
@@ -28,9 +28,9 @@
             </a>
             <div class="mini-conteiner">
                 <span class="title"><a href="/book/{{book.alias}}/">{{ book.title }}</a></span>
-                <a href="/author/{{book.author.alias}}/">
-                <span class="auth">{{ book.author }}</span>
-                </a>
+                
+                <span class="auth"><a href="/author/{{book.author.alias}}/">{{ book.author }}</a></span>
+                
                 <span class="price">{{ book.price }} рублей</span>
                 <span class="short">{{ book.short_description }}</span>
             </div>

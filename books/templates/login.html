@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block main %}
+<div class="log">
+    <form action='' method='post'>{% csrf_token %}
+        <label for="username">Введите логин:</label>
+        <input type="text" name="username" value="" id="username">
+        <p>
+            <label for="password">Введите пароль:</label>
+            <input type="password" name="password" value="" id="password">
+        </p>
+        <input type="submit" value="login" />
+        <input type="hidden" name="next" value="{{ next|escape }}" />
+        {% if errors %}
+            <p class="error">Сожалеем, вы неправильно ввели логин или пароль</p>
+        {% endif %}
+    </form>
+</div>
+{% endblock %}

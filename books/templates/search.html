@@ -4,14 +4,14 @@
     {% if books %}
         <span>Найдено {{ books|length }} книга.</span><br>
         {% for book in books %}
-        <a href="/book/{{book.alias}}/" class="item">
-            <img src="{{book.img}}" alt="Здесь должна была быть картинка">
+        <a href="/book/{{ book.alias }}/" class="item">
+            <img src="{{ book.image.url }}" alt="Здесь должна была быть картинка">
         </a>
         <div class="mini-conteiner">
-            <a href="/book/{{book.alias}}">
+            <a href="/book/{{ book.alias }}">
                 <span class="title">{{ book.title }}</span>
             </a>
-            <a href="/author/{{auth.alias}}">
+            <a href="/author/{{ auth.alias }}">
             <span class="auth">{{ book.author.author_name }}</span>
             </a>
             <span class="price">{{ book.price }} рублей</span>

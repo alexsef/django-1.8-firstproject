@@ -15,12 +15,20 @@
                     <img src="{% static "logo.jpg" %}" alt="#">
                 </a>
             </div>
+
             <div class="upheader-2">
                 <form method="GET" action="{% url 'books.views.search' %}">
                     <input class="form" type="text" name="q" placeholder="Название книги">
                     <input class="button" type="submit" value="Найти">
                 </form>
             </div>
+            {% if username %}
+                <div class="logout"><a href="/logout">Выйти, {{ username }}</a></div>
+            {% else %}
+                <div class="register"><a href="/register/">Регистрация</a></div>
+                <div class="login"><a href="/login/">Войти</a></div>
+            {% endif %}
+            
         </div>
         <div class="header">
             <div class="nav">

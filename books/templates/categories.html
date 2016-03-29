@@ -8,6 +8,7 @@
 
 {% block main %}
     {% for book in books %}
+    <div class="con">
         <a href="/book/{{book.alias}}/" class="item">
             <img src="{{book.image.url}}" alt="Здесь должна была быть картинка">
         </a>
@@ -19,6 +20,23 @@
             <span class="auth">{{ book.author.author_name }}</span>
             </a>
             <span class="price">{{ book.price }} рублей</span>
+            <span class="descr">{{ book.short_description }}</span>
         </div>
+    </div>
     {% endfor %}
+    <div class="pagination">
+    <span class="step-links">
+        {% if books.has_previous %}
+            <a href="?page={{ books.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ books.number }} of {{ books.paginator.num_pages }}.
+        </span>
+
+        {% if books.has_next %}
+            <a href="?page={{ books.next_page_number }}">next</a>
+        {% endif %}
+    </span>
+</div>
 {% endblock %}
